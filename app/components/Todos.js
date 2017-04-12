@@ -6,32 +6,15 @@ import ChevronRightIcon from 'material-ui/svg-icons/navigation/chevron-right';
 
 import TodosStore from './TodosStore';
 
-
 class Todos extends React.Component {
   
-  constructor() {
-      super();
+  constructor(props) {
+      super(props);
       this.styles = {
-        float: 'left',
-        width: '50%',
+        flex: '1 1 auto',
         margin: '3%'
       };
-      this.state = { todos: [] };
-  }
 
-  componentDidMount() {
-    TodosStore.getAll().then((data) => {
-      console.log('get all', data);
-      this.setState({
-        todos: data.todos
-      });
-    });
-    
-    TodosStore.subscribe((action) => {
-      this.setState({
-        todos: action.todos
-      });
-    });
   }
   
   handleClick(note) {
@@ -50,11 +33,13 @@ class Todos extends React.Component {
   }
 
   render() {
-    const todos = this.state.todos.map(this.create.bind(this));
+    const todos = this.props.todos.map(this.create.bind(this));
     return (
-      <List style={this.styles}>
-        {todos}
-      </List>
+      <div style={this.styles}>
+        <List>
+          {todos}
+        </List>
+      </div>
     );
   }
 }
