@@ -6,7 +6,6 @@ import StarIcon from 'material-ui/svg-icons/toggle/star';
 
 import Viewport from './Viewport';
 
-
 class App extends React.Component {
     
     constructor() {

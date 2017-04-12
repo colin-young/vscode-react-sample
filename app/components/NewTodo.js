@@ -11,8 +11,7 @@ class NewTodo extends React.Component {
         super();
         this.styles = {
             spacing: {
-                float: 'left',
-                width: '30%',
+                flex: '1 1 auto',
                 margin: '3%'
             },
             prompt: {
